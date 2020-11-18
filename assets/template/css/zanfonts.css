@@ -1,0 +1,106 @@
+/***********************************************************************************
+*
+*
+*
+* - ZanCMS (c) 2016 - All rights reserved.
+* - Version 1.0
+* - Design and coded by Max Style.
+*
+*
+*
+***********************************************************************************/
+
+@font-face {
+	font-family: 'Raleway';
+	src: url('../fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway Italic';
+	src: url('../fonts/Raleway-Italic.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway Medium';
+	src: url('../fonts/Raleway-Medium.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway MediumItalic';
+	src: url('../fonts/Raleway-MediumItalic.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway Bold';
+	src: url('../fonts/Raleway-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway BoldItalic';
+	src: url('../fonts/Raleway-BoldItalic.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway Light';
+	src: url('../fonts/Raleway-Light.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway LightItalic';
+	src: url('../fonts/Raleway-LightItalic.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('../fonts/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu Italic';
+	src: url('../fonts/Ubuntu-Italic.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu Medium';
+	src: url('../fonts/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu MediumItalic';
+	src: url('../fonts/Ubuntu-MediumItalic.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu Bold';
+	src: url('../fonts/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu BoldItalic';
+	src: url('../fonts/Ubuntu-BoldItalic.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu Light';
+	src: url('../fonts/Ubuntu-Light.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu LightItalic';
+	src: url('../fonts/Ubuntu-LightItalic.ttf');
+}
+
+@font-face {
+	font-family: 'Ubuntu Condensed';
+	src: url('../fonts/Ubuntu-C.ttf');
+}
+
+@font-face {
+	font-family: 'Volter';
+	src: url('../fonts/Volter.ttf');
+}
+
+@font-face {
+	font-family: 'ZanFont';
+	src: url('../fonts/ZanFont.otf');
+}

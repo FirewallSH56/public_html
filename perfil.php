@@ -1,0 +1,261 @@
+<?php
+include "assets/system/core.php";
+
+$page = basename($_SERVER["PHP_SELF"]);
+
+if( !$myuser::is_auth() )
+	header("Location: ".$horange_settings['weblink']."/index/");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Site Information -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="author" lang="en" content="<?php echo $rise_settings['name'];?>">
+    <meta name="robots" content="follow, index">
+    <meta property="og:title" content="<?php echo $rise_settings['name'];?>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo $rise_settings['weblink'];?>">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="<?php echo $rise_settings['name'];?>">
+    <link rel="shortcut icon" href="<?php echo $rise_settings['weblink'];?>/riseweb/images/icon.ico" type="image/x-icon">
+	<meta name="csrf-token" content="IcIktUIcoLQgu38v389kwxVnSKmNboZedwRVZFVG">
+    <title><?php echo $rise_settings['name'];?> - Preferencias Ajustes</title>
+	
+	<!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo $rise_settings['weblink'];?>/riseweb/css/fonts.css">
+    <link rel="stylesheet" href="<?php echo $rise_settings['weblink'];?>/riseweb/css/flaticon.css">
+    <link rel="stylesheet" href="<?php echo $rise_settings['weblink'];?>/riseweb/css/magnific-popup.css">
+    <link rel="stylesheet" href="<?php echo $rise_settings['weblink'];?>/riseweb/css/selectric.css">
+    <link rel="stylesheet" href="<?php echo $rise_settings['weblink'];?>/riseweb/css/circle.css">
+    <link rel="stylesheet" href="<?php echo $rise_settings['weblink'];?>/riseweb/css/app.css">
+    <link rel="stylesheet" href="<?php echo $rise_settings['weblink'];?>/riseweb/css/app.responsive.css">
+	
+	<!-- -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+	<!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="<?php echo $rise_settings['weblink'];?>/riseweb/js/addons.js"></script>
+	<script src="<?php echo $rise_settings['weblink'];?>/riseweb/js/app.js"></script>
+
+<script type="text/javascript">
+</script>
+
+<style>
+.playercount{background-color:transparent;-webkit-border-radius:48px;-moz-border-radius:48px;border-radius:48px;padding:11px 24px;display:inline-block;text-decoration:none;font-family:Montserrat,Arial,sans-serif;font-weight:600;font-size:14px;color:#fff;text-transform:uppercase;border:2px solid #fff;height:47px;line-height:21px;text-shadow:none;text-align:center;-webkit-transition:background-color .2s,color .2s;transition:background-color .2s,color .2s}.playercount[disabled]{opacity:.5;cursor:default}.playercount.white{color:#fff;border-color:#fff}.playercount.white.plain,.playercount.white:not([disabled]):not(.no-hover):hover{background-color:#fff;color:#333}.playercount.white{color:#fff;border-color:#fff}
+</style>
+</head>
+
+<body class="flex-container flex-direction-column">
+
+	<!-- Notifications -->
+    <div class="notifications-container">
+    <?php
+            if(isset($_POST['saveperfil'])){
+            $color = $_POST['color'];
+            $background = $_POST['background'];
+            $youtube = $_POST['youtube'];
+            if(empty($color) ){
+                 echo '<div class="notification-container" data-id="169df144842" data-type="error" style="display: block;">
+            <a id="close-notification" href="#" class="notification-close"></a>
+            <div class="notification-title">
+                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Error!</font></font>
+            </div>
+            <div class="notification-content">
+                <font style="vertical-align: inherit;">
+                                    Los campos estan vacios.
+                                </font>
+            </div>
+        </div>';
+            }else{
+                        mysqli_query($db,"UPDATE users SET bg = '".$background."', color = '".$color."', youtube = '".$youtube."' WHERE id = '".$myuser->id."' LIMIT 1");
+                         echo '<div class="notifications-container">
+    
+                <div class="notification-container" data-id="169df3869ed" data-type="success" style="display: block;">
+            <a id="close-notification" href="#" class="notification-close"></a>
+            <div class="notification-title">
+                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Success!</font></font>
+            </div>
+            <div class="notification-content">
+                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Actualizaste tu perfil correctamente.</font></font>
+            </div>
+        </div>
+            </div>';
+                    }
+                }
+        ?>
+			</div>
+	
+	<!-- Header -->
+	<?php 
+	require_once "templates/header.php";
+	?>
+	<!-- Navigation -->
+    <?php 
+    require_once "templates/nav.php";
+    ?>
+	<!-- End Navigation -->
+	
+	<!-- Start Content -->
+	        <script type="text/javascript">
+            document.habboLoggedIn = true;
+		</script>
+<!-- Start Content -->
+<section class="page-container" data-page="settings_preferences">
+	<header class="page-header flex-container flex-vertical-center">
+		<div class="page-header-content"><h1>Ajustes de la Cuenta</h1> Configura tus preferencias, tu email, contraseña y perfil.</div>
+	</header>
+	<div class="page-content">
+		<article class="default-section">
+        <div class="settings-panel">
+            <a href="/settings/preferencias" class="preferences selected" data-label="Ajustes de Preferencias"><i class="fas fa-cogs fa-lg"></i></a>
+            <a href="/settings/password" class="password" data-label="Ajustes de Contraseña"><i class="fas fa-lock fa-lg"></i></a>
+            <a href="/settings/email" class="email" data-label="Ajustes de Email"><i class="fas fa-envelope fa-lg"></i></a>
+			<a href="/settings/profile" class="profile" data-label="Ajustes de Perfil"><i class="fas fa-user fa-lg"></i></a>
+        </div>
+       <h3 class="aside-title">Actualiza tu perfil</h3>
+        <form action="" method="post">
+            <input type="hidden" name="_token" value="FblXIwq6Zsod0L8OIfM0Xea13F8ObjI03lkt0p4e">                <h4 class="label-title">Tema de tu Perfil</h4>
+                <span class="label-description">Escoge el color de tu perfil</span>
+                
+                <script src="<?php echo $rise_settings['weblink'];?>/riseweb/js/jscolor.js"></script>
+                <input class="jscolor" value="<?php echo $myuser->color;?>" name="color" style="    border-radius: 250px;
+    float: right;
+    height: 60px;
+    width: 60px;
+    margin-top: -30px;
+    font-family: Poppins, Arial, sans-serif;
+    text-align: center;
+    border-width: 0px;">
+    
+                <h4 class="label-title">Fondo de tu Perfil</h4>
+                <span class="label-description">Escoge el fondo para tu perfil<br>
+                <select onchange="$('#imageToSwap').attr('src', '/riseweb/images/profiles/backgrounds/' + this.options[this.selectedIndex].value + '');" name="background">
+                                    
+                                    
+                                                                        <option value="bg_colour_01.gif" selected>bg_colour_01.gif</option>
+                                                                        
+                                                                        <option id="1" name="background" value="10.gif">10.gif</option>
+                                                                        <option id="1" name="background" value="14.gif">14.gif</option>
+                                                                        <option id="1" name="background" value="24.gif">24.gif</option>
+                                                                        <option id="1" name="background" value="27.gif">27.gif</option>
+                                                                        <option id="1" name="background" value="27419_appart732_scene.gif">27419_appart732_scene.gif</option>
+                                                                        <option id="1" name="background" value="31.gif">31.gif</option>
+                                                                        <option id="1" name="background" value="45.gif">45.gif</option>
+                                                                        <option id="1" name="background" value="ACMA_Cork_bg.gif">ACMA_Cork_bg.gif</option>
+                                                                        <option id="1" name="background" value="CamoCheese_wallpaper.gif">CamoCheese_wallpaper.gif</option>
+                                                                        <option id="1" name="background" value="CheeseWedge_wallpaper.gif">CheeseWedge_wallpaper.gif</option>
+                                                                        <option id="1" name="background" value="HC_pillow.gif">HC_pillow.gif</option>
+                                                                        <option id="1" name="background" value="HC_royal.gif">HC_royal.gif</option>
+                                                                        <option id="1" name="background" value="Hween07_BGpattern_slime.gif">Hween07_BGpattern_slime.gif</option>
+                                                                        <option id="1" name="background" value="basket_ball.gif">basket_ball.gif</option>
+                                                                        <option id="1" name="background" value="bg_bathroom_tile.gif">bg_bathroom_tile.gif</option>
+                                                                        <option id="1" name="background" value="bg_bobbaheart.gif">bg_bobbaheart.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_01.gif">bg_colour_01.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_02.gif">bg_colour_02.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_03.gif">bg_colour_03.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_04.gif">bg_colour_04.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_05.gif">bg_colour_05.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_06.gif">bg_colour_06.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_07.gif">bg_colour_07.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_08.gif">bg_colour_08.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_09.gif">bg_colour_09.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_10.gif">bg_colour_10.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_11.gif">bg_colour_11.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_12.gif">bg_colour_12.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_13.gif">bg_colour_13.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_14.gif">bg_colour_14.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_15.gif">bg_colour_15.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_16.gif">bg_colour_16.gif</option>
+                                                                        <option id="1" name="background" value="bg_colour_17.gif">bg_colour_17.gif</option>
+                                                                        <option id="1" name="background" value="bg_frog.gif">bg_frog.gif</option>
+                                                                        <option id="1" name="background" value="bg_love.gif">bg_love.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_abstract1.gif">bg_pattern_abstract1.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_bobbaskulls1.gif">bg_pattern_bobbaskulls1.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_bricks.gif">bg_pattern_bricks.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_carpants.gif">bg_pattern_carpants.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_fish.gif">bg_pattern_fish.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_floral_01.gif">bg_pattern_floral_01.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_floral_02.gif">bg_pattern_floral_02.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_floral_03.gif">bg_pattern_floral_03.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_plasto.gif">bg_pattern_plasto.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_space.gif">bg_pattern_space.gif</option>
+                                                                        <option id="1" name="background" value="bg_pattern_tinyroom.gif">bg_pattern_tinyroom.gif</option>
+                                                                        <option id="1" name="background" value="bg_rain.gif">bg_rain.gif</option>
+                                                                        <option id="1" name="background" value="bg_serpentine_1.gif">bg_serpentine_1.gif</option>
+                                                                        <option id="1" name="background" value="bg_serpentine_2.gif">bg_serpentine_2.gif</option>
+                                                                        <option id="1" name="background" value="bg_serpentine_darkblue.gif">bg_serpentine_darkblue.gif</option>
+                                                                        <option id="1" name="background" value="bg_serpentine_darkred.gif">bg_serpentine_darkred.gif</option>
+                                                                        <option id="1" name="background" value="bg_water.gif">bg_water.gif</option>
+                                                                        <option id="1" name="background" value="bg_wood.gif">bg_wood.gif</option>
+                                                                        <option id="1" name="background" value="bubble.gif">bubble.gif</option>
+                                                                        <option id="1" name="background" value="denim.gif">denim.gif</option>
+                                                                        <option id="1" name="background" value="duck_back.gif">duck_back.gif</option>
+                                                                        <option id="1" name="background" value="easter_eggs_wallpaper.gif">easter_eggs_wallpaper.gif</option>
+                                                                        <option id="1" name="background" value="goth_pattern.gif">goth_pattern.gif</option>
+                                                                        <option id="1" name="background" value="grungewall.gif">grungewall.gif</option>
+                                                                        <option id="1" name="background" value="habborella_sea_bg.gif">habborella_sea_bg.gif</option>
+                                                                        <option id="1" name="background" value="hannamontanawp.gif">hannamontanawp.gif</option>
+                                                                        <option id="1" name="background" value="inside (14).gif">inside (14).gif</option>
+                                                                        <option id="1" name="background" value="inside (2).gif">inside (2).gif</option>
+                                                                        <option id="1" name="background" value="lace.gif">lace.gif</option>
+                                                                        <option id="1" name="background" value="loveduck_back.gif">loveduck_back.gif</option>
+                                                                        <option id="1" name="background" value="metal2.gif">metal2.gif</option>
+                                                                        <option id="1" name="background" value="ruled_paper.gif">ruled_paper.gif</option>
+                                                                        <option id="1" name="background" value="skulls_wallpaper.gif">skulls_wallpaper.gif</option>
+                                                                        <option id="1" name="background" value="starburst_raspberry.gif">starburst_raspberry.gif</option>
+                                                                        <option id="1" name="background" value="vale_rose_bg.gif">vale_rose_bg.gif</option>
+                                                                        <option id="1" name="background" value="vale_skull_bg.gif">vale_skull_bg.gif</option>
+                                                                        <option id="1" name="background" value="vara (4).gif">vara (4).gif</option>
+                                                                        <option id="1" name="background" value="wallpaper_BeachBunny.gif">wallpaper_BeachBunny.gif</option>
+                                                                        <option id="1" name="background" value="xmas2009_bg_snowing.gif">xmas2009_bg_snowing.gif</option>
+                                                                        <option id="1" name="background" value="xmas_gifts_bg2.gif">xmas_gifts_bg2.gif</option>
+                                                                        
+                                </select>
+                                
+                                <br>
+                                
+                                <img id="imageToSwap" class="profile" src="/riseweb/images/profiles/backgrounds/<?php echo $myuser->bg;?>" style="border-radius: 250px;
+    float: right;
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    margin-top: -70px;
+    text-align: center;
+    border-width: 0px;
+    ">
+                <h4 class="label-title">YouTube</h4>
+                <span class="label-description">Mostrar un enlace de YouTube en su perfil<br>
+            <div class="row">
+            <input style="width:70%" type="text" name="youtube" class="rounded-input grey-active" value="<?php echo $myuser->youtube;?>">
+</div>
+            
+            <p class="submit-button">
+                <button type="submit" class="rounded-button grey" name="saveperfil">Guardar</button>
+            </p>
+        </form>
+    </article>
+	</div>
+</section>
+	
+	<!-- Footer -->
+	<?php
+	require_once "templates/footer.php";
+	?>
+	<!-- End Footer -->
+	
+	<!-- Extra Scripts -->
+    <script src="<?php echo $rise_settings['weblink'];?>/riseweb/js/jquery.fullscreen.min.js"></script>
+    <script src="<?php echo $rise_settings['weblink'];?>/riseweb/js/jquery.magnific-popup.js"></script>
+    <script src="<?php echo $rise_settings['weblink'];?>/riseweb/js/selectric.js"></script>
+</body>
+</html>

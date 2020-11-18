@@ -1,0 +1,28 @@
+RewriteEngine On
+RewriteRule ^profile/(.*)$ ./profile.php?username=$1
+RewriteRule ^forum/categorie/(.*)$ ./categorie.php?id=$1
+RewriteRule ^forum/post/(.*)$ ./post.php?id=$1
+RewriteRule ^forum/newpost/(.*)$ ./newpost.php?id=$1
+RewriteRule ^news/(.*)$ ./news.php?id=$1
+RewriteRule ^settings/preferencias/(.*)$ ./preferences.php
+RewriteRule ^settings/password/(.*)$ ./password.php
+RewriteRule ^settings/email/(.*)$ ./email.php
+RewriteRule ^settings/profile/(.*)$ ./perfil.php
+RewriteRule ^store/vip/(.*)$ ./vip.php
+RewriteRule ^store/currency/(.*)$ ./currency.php
+RewriteRule ^store/history/(.*)$ ./history.php
+RewriteRule ^community/staff/(.*)$ ./staff.php
+RewriteRule ^community/contributors/(.*)$ ./contributors.php
+RewriteRule ^community/photos/(.*)$ ./photos.php
+RewriteRule ^community/tops/(.*)$ ./tops.php
+RewriteRule ^swfs/habbo-imaging/badge/(.*).gif$ ./swfs/habbo-imaging/badge.php?badge=$1
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/$ $1.php
+RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
+RewriteRule (.*)$ /$1/ [R=301,L]
+RewriteRule ^mantenimiento/(.*)$ ./mantenimiento.php
+
+ErrorDocument 404 /404.php
